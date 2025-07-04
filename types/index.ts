@@ -3,3 +3,12 @@ export interface buttonType{
     label:string , 
     path:string 
 }
+export interface Product {
+  id: string
+  userId: string
+  title: string
+  description: string
+  price: number
+  Delivery: boolean
+  ProductsImageList: string[]
+}
