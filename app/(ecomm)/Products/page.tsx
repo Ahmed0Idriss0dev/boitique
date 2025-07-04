@@ -1,3 +1,4 @@
+import Add from '@/components/kits/Add'
 import Dailog from '@/components/kits/Dailog'
 import Loder from '@/components/kits/Loder'
 import Products from '@/components/section/Products'
@@ -12,11 +13,14 @@ const page = async () => {
   const user = await currentUser()
     return (
     <>
+    <div className="flex h-14 justify-between items-center gap-2 ">
+      <h1 className='text-2xl'>Products</h1>
+      <Add/>
+    </div>
   <Suspense fallback={<Loder/>}>
      <Products/>
   </Suspense>
-   {user?.id}
-    
+  
     </>
   )
 }

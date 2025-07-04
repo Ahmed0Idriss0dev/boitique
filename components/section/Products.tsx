@@ -9,7 +9,7 @@ const Products = async () => {
     const data: Product[] = await getProducts()
     return (
         <div className='grid grid-cols-4 gap-2 '>
-            {
+            {/* {
                 data.map(({ price, description, title, Delivery, ProductsImageList , id  }, i) => (
                     <div key={i} className="w-full border border-neutral-200 h-full bg-white rounded-md">
                         {!ProductsImageList[0] ? (
@@ -25,7 +25,12 @@ const Products = async () => {
                         </div>
                     </div>
                 ))
-            }
+            } */}
+            <div className="w-full h-70 border border-neutral-200 rounded-2xl"></div>
+            <div className="w-full h-70 border border-neutral-200 rounded-2xl"></div>
+            <div className="w-full h-70 border border-neutral-200 rounded-2xl"></div>
+            <div className="w-full h-70 border border-neutral-200 rounded-2xl"></div>
+
         </div>)
 }
 

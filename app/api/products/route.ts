@@ -10,13 +10,13 @@ export async function GET() {
   console.log(user)
   const products = await prisma.products.findMany({
     where: {
-      userId:user?.id
+      userId:'user_2zPKUHEXsWMVpqi3KpjWGNvjGeK'
     }
   })
   
   return Response.json(products)
 }
-/// psot <==============================Ahmed idriss=================================>
+///  <==============================Ahmed idriss=================================>
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
   if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

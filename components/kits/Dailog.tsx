@@ -61,7 +61,7 @@ const Dailog = () => {
   }
    
   return (
-    <div className='inset-0 p-7 overflow-auto bg-brand-950/10 fixed flex justify-center items-center'>
+    <div className='inset-0 p-7 backdrop-blur-md overflow-auto bg-brand-950/10 fixed flex justify-center items-center'>
       <form onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-white border border-neutral-200 h-max">
         <div>
           <h1>Add new products</h1>
