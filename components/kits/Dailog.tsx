@@ -3,13 +3,14 @@
 import React, { useState } from 'react'
 import { Switch } from '../ui/switch'
 import Upload from './Upload'
+import Image from 'next/image'
 
 const Dailog = () => {
   const [imageData, setImageData] = useState<string[]>([])
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
-  const [delivery, setDelivery] = useState(false)
+  const [        Delivery , setDelivery] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const handleUpload = (url: string) => {
@@ -21,11 +22,11 @@ const Dailog = () => {
     setLoading(true)
 
     const payload = {
-      title,
-      price: parseFloat(price),
-      description,
-      delivery,
-      images: imageData
+       price , 
+        description ,
+        ProductsImageList :imageData,
+        title ,
+        Delivery ,
     }
 
     try {
@@ -68,7 +69,7 @@ const Dailog = () => {
             {imageData.length > 3 ? '': <Upload onUpload={(url) => setImageData((prev) => [...prev, url])}/>
        }
           {imageData.map((image, i) => (
-            <img key={i} src={image} alt="Uploaded" className="w-30 object-cover h-30 rounded shadow" />
+            <Image key={i} width={400} height={400} src={image} alt="Uploaded" className="w-30 object-cover h-30 rounded shadow" />
           ))}
         </div>
 
@@ -101,7 +102,7 @@ const Dailog = () => {
 
           <div className="flex items-center gap-1">
             <Switch
-              checked={delivery}
+              checked={ Delivery }
               onCheckedChange={setDelivery}
               className="data-[state=checked]:bg-brand-500 bg-gray-300"
             />
