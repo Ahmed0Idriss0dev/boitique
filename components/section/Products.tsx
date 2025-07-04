@@ -8,11 +8,16 @@ import Remove from '../kits/Remove'
 const Products = async () => {
     const data: Product[] = await getProducts()
     console.log(data)
+    
     return (
+        <>
+        {
+            data && (
+
         <div className='grid grid-cols-4 gap-2 '>
-            {/* {
+            {
                 data.map(({ price, description, title, Delivery, ProductsImageList , id  }, i) => (
-                    <div key={i} className="w-full border border-neutral-200 h-full bg-white rounded-md">
+                    <div key={i} className="w-full flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
                         {!ProductsImageList[0] ? (
                             <div className="w-full h-30 bg-neutral-100"></div>
                         ) :
@@ -28,10 +33,15 @@ const Products = async () => {
                             </div>
                     </div>
                 ))
-            } */}
+            }
         
 
-        </div>)
+        </div>
+            )
+        }
+        
+        </>
+        )
 }
 
 export default Products

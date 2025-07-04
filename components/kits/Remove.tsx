@@ -13,7 +13,7 @@ const Remove =  ({id}:{id:string}) => {
       })
   }
   return (
-    <button onClick={Remove} className='text-brand-950 bg-'>
+    <button onClick={Remove} className='text-white h-10 w-10 bg-brand-500 rounded-full flex justify-center items-center'>
         <Trash/>
     </button>
   )

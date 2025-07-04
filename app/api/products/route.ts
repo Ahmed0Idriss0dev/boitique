@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
       ProductsImageList,
       title,
       Delivery,
-      userId,
+      userId:users,
     }
   })
   revalidateTag('data')
