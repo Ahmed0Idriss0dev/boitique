@@ -5,8 +5,11 @@ import { Switch } from '../ui/switch'
 import Upload from './Upload'
 import Image from 'next/image'
 import Close from './close'
+import { ContextProvider } from '@/store'
 
 const Dailog = () => {
+  const {openClose} =ContextProvider()
+  
   const [imageData, setImageData] = useState<string[]>([])
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState('')
@@ -14,10 +17,7 @@ const Dailog = () => {
   const [        Delivery , setDelivery] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const handleUpload = (url: string) => {
-    setImageData((prev) => [...prev, url])
-  }
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -47,6 +47,7 @@ const Dailog = () => {
         setDescription('')
         setDelivery(false)
         setImageData([])
+        openClose()
       } else {
         console.error(await res.text())
         alert('Something went wrong.')

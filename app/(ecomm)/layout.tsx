@@ -1,5 +1,6 @@
 import Nav from "@/components/section/Nav";
 import Sidebar from "@/components/section/Sidebar";
+import Provider from "./Provider";
 
 export default function RootLayout({
   children,
@@ -13,7 +14,10 @@ export default function RootLayout({
     <div className="w-full h-full ">
      <Nav/>
      <div className="w-full bg-brand-50 p-2.5 h-full">
+      <Provider>
       {children} 
+
+      </Provider>
 
      </div>
     </div>
