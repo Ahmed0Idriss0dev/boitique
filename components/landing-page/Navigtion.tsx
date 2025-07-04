@@ -10,7 +10,7 @@ const Navigtion = () => {
           <Link className='button w-40 flex justify-center items-center' href={'/sign-in'}>
             login
           </Link>
-          <Link className='button border-0 bg-brand-500 text-white w-40 flex justify-center items-center' href={'/sign-in'}>
+          <Link className='button border-0 bg-brand-500 text-white w-40 flex justify-center items-center' href={'/sign-up'}>
             Sign Up
           </Link>
         </div>

@@ -3,19 +3,7 @@ import { auth, currentUser } from "@clerk/nextjs/server"
 import { revalidatePath, revalidateTag } from "next/cache"
 import { NextRequest, NextResponse } from "next/server"
 
-export async function GET() {
-  const user = await currentUser()
- 
 
-  console.log(user)
-  const products = await prisma.products.findMany({
-    where: {
-      userId:'user_2zPKUHEXsWMVpqi3KpjWGNvjGeK'
-    }
-  })
-  
-  return Response.json(products)
-}
 ///  <==============================Ahmed idriss=================================>
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
