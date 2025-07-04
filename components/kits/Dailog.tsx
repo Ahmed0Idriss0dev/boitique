@@ -66,7 +66,7 @@ const Dailog = () => {
 
         <div>
             {imageData.length > 3 ? '': <Upload onUpload={(url) => setImageData((prev) => [...prev, url])}/>
- }
+       }
           {imageData.map((image, i) => (
             <img key={i} src={image} alt="Uploaded" className="w-30 object-cover h-30 rounded shadow" />
           ))}
