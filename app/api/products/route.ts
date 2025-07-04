@@ -1,6 +1,6 @@
 import prisma from "@/utils/client"
 import { auth, currentUser } from "@clerk/nextjs/server"
-import { revalidateTag } from "next/cache"
+import { revalidatePath, revalidateTag } from "next/cache"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function GET() {
@@ -37,5 +37,6 @@ export async function POST(req: NextRequest) {
     }
   })
   revalidateTag('data')
+  revalidatePath('/Products')
   return Response.json({ hello: 'world' }, { status: 200 })
 }

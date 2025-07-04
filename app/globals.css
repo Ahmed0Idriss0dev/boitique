@@ -54,7 +54,7 @@
 }
 @layer components {
   .button{
-    @apply w-full h-11 border border-neutral-200 rounded-2xl
+    @apply w-full h-11 border border-neutral-200 rounded-md
   }
   .section{
     @apply px-4 sm:px-8 md:px-12
