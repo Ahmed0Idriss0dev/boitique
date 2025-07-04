@@ -12,7 +12,7 @@ export async function GET() {
   })
   return Response.json(products)
 }
-/// psot ==============================Ahmed idriss=================================>
+/// psot <==============================Ahmed idriss=================================>
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
   if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
