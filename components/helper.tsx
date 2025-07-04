@@ -9,8 +9,8 @@ export const ButtonLinks:buttonType[] =[
     } ,
     {
         icon:<ShoppingCart/> ,
-        label:'Store',
-        path:'/store'
+        label:'Orders',
+        path:'/Orders'
     } ,
     {
         icon:<Settings/> ,

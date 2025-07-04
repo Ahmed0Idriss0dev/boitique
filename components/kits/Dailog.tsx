@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Switch } from '../ui/switch'
 import Upload from './Upload'
 import Image from 'next/image'
+import Close from './close'
 
 const Dailog = () => {
   const [imageData, setImageData] = useState<string[]>([])
@@ -113,7 +114,7 @@ const Dailog = () => {
           </div>
 
           <div className="grid gap-2 grid-cols-[100px_1fr]">
-           
+           <Close/>
             <button
               type="submit"
               className="button bg-brand-500 justify-center text-white"
