@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '../kist/Logo'
-import Button from '../kist/Button'
+import Logo from '../kits/Logo'
+import Button from '../kits/Button'
 import { ButtonLinks } from '../helper'
 
 const Sidebar = () => {

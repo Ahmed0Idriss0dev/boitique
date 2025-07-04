@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../kist/Logo'
+import Logo from '../kits/Logo'
 import Link from 'next/link'
 
 const Navigtion = () => {

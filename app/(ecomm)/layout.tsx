@@ -1,3 +1,4 @@
+import Nav from "@/components/section/Nav";
 import Sidebar from "@/components/section/Sidebar";
 
 export default function RootLayout({
@@ -10,7 +11,11 @@ export default function RootLayout({
    <div className="grid h-dvh w-full grid-cols-[200px_1fr] ">
     <Sidebar/>
     <div className="w-full h-full ">
+     <Nav/>
+     <div className="w-full section h-full">
       {children} 
+
+     </div>
     </div>
 
    </div>
