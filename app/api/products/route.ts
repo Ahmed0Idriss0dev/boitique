@@ -29,7 +29,7 @@ export async function  POST(req:NextRequest) {
          } = data
     const products= await prisma.products.create({
       data:{
-        price , 
+        price:parseFloat(price) , 
         description ,
         ProductsImageList ,
         title ,
