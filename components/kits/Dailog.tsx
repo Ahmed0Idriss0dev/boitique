@@ -68,7 +68,7 @@ const Dailog = () => {
         </div>
 
         <div>
-            {imageData.length < 3 ? '': <Upload onUpload={(url) => setImageData((prev) => [...prev, url])}/>
+            {imageData.length ==3 ? '': <Upload onUpload={(url) => setImageData((prev) => [...prev, url])}/>
           }
           <div className="grid grid-cols-3 gap-2">
           {imageData.map((image, i) => (

@@ -5,11 +5,15 @@ import { NextRequest, NextResponse } from "next/server"
 
 export async function GET() {
   const user = await currentUser()
+ 
+
+  console.log(user)
   const products = await prisma.products.findMany({
     where: {
-      userId: user?.id
+      userId:user?.id
     }
   })
+  
   return Response.json(products)
 }
 /// psot <==============================Ahmed idriss=================================>
@@ -33,7 +37,7 @@ export async function POST(req: NextRequest) {
       ProductsImageList,
       title,
       Delivery,
-      userId: users,
+      userId,
     }
   })
   revalidateTag('data')

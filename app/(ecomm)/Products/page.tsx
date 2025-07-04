@@ -9,12 +9,13 @@ import Image from 'next/image'
 import React, { Suspense } from 'react'
 
 const page = async () => {
+  const user = await currentUser()
     return (
     <>
   <Suspense fallback={<Loder/>}>
      <Products/>
   </Suspense>
-   
+   {user?.id}
     
     </>
   )
