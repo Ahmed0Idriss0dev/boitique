@@ -1,13 +1,15 @@
 import { UploadCloud } from 'lucide-react';
 import { CldUploadWidget } from 'next-cloudinary';
 import React from 'react'
-
-const Upload = () => {
+interface OnUpload{
+    onUpload:(url:string)=> void
+}
+const Upload = ({onUpload}:OnUpload) => {
   return (
 <CldUploadWidget
   uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!}
   onSuccess={(res, { widget }) => {
-    
+    onUpload(res.info.secure_url)
     widget.close();
   }}
  

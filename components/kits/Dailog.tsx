@@ -56,7 +56,7 @@ const Dailog = () => {
       setLoading(false)
     }
   }
-
+   
   return (
     <div className='inset-0 p-7 overflow-auto bg-brand-950/10 fixed flex justify-center items-center'>
       <form onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-white border border-neutral-200 h-max">
@@ -65,9 +65,10 @@ const Dailog = () => {
         </div>
 
         <div>
-          <Upload/>
+            {imageData.length > 3 ? '': <Upload onUpload={(url) => setImageData((prev) => [...prev, url])}/>
+ }
           {imageData.map((image, i) => (
-            <img key={i} src={image} alt="Uploaded" className="w-full h-30 rounded shadow" />
+            <img key={i} src={image} alt="Uploaded" className="w-30 object-cover h-30 rounded shadow" />
           ))}
         </div>
 
