@@ -1,3 +1,5 @@
+export const runtime = 'nodejs'; 
+
 import prisma from "@/utils/client"
 import { auth, currentUser } from "@clerk/nextjs/server"
 import { revalidatePath, revalidateTag } from "next/cache"

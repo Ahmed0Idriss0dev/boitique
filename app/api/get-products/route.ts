@@ -1,4 +1,4 @@
-// /api/get-products/route.ts (Next.js 13/14 App Router)
+export const runtime = 'nodejs'; 
 import { NextResponse } from 'next/server'
 import { currentUser } from '@clerk/nextjs/server'
 import prisma from '@/utils/client'
