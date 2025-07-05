@@ -6,13 +6,14 @@ import React from 'react'
 import Remove from '../kits/Remove'
 
 import useSWR from 'swr'
-
+import { useUser } from '@clerk/nextjs'
 const getProducts = async () => {
+    const {user} = useUser()
   try {
     const response = await fetch('/api/get-products', {
       next: { tags: ['collection'] } ,
       method: 'POST',
-      body: JSON.stringify({ userId:'sd'}),
+      body: JSON.stringify({ userId:user?.id}),
       headers: {
         'Content-Type': 'application/json' ,
       }
