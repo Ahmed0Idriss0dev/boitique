@@ -3,18 +3,17 @@
 
 
 @theme inline {
---color-brand-50: #e8f4ff;
---color-brand-100: #d5eaff;
---color-brand-200: #b3d6ff;
---color-brand-300: #85b8ff;
---color-brand-400: #568cff;
---color-brand-500: #2f60ff;
---color-brand-600: #0c2eff;
---color-brand-700: #0021ff;
---color-brand-800: #0623cd;
---color-brand-900: #10289f;
---color-brand-950: #0a165c;
-
+--color-brand-50: #f0f2ff;
+--color-brand-100: #e4e7ff;
+--color-brand-200: #cdd4ff;
+--color-brand-300: #a4adff;
+--color-brand-400: #7179ff;
+--color-brand-500: #3938ff;
+--color-brand-600: #1f10ff;
+--color-brand-700: #0c00ff;
+--color-brand-800: #0900d9;
+--color-brand-900: #0901a6;
+--color-brand-950: #000279;
 
 
 --color-sidebar-ring: var(--sidebar-ring);

@@ -5,7 +5,6 @@ import React from 'react'
 import Remove from '../kits/Remove'
 
 import { GetProducts } from '@/client/db/curd'
-import Link from 'next/link'
 
 
 const Products = async  () => {
@@ -19,7 +18,7 @@ const Products = async  () => {
         <div className='grid grid-cols-4 gap-2 '>
             {
                 data.map(({ price, description, title, Delivery   ,ProductImage , $id }, i) => (
-                    <Link  href={`/${$id}`} key={i} className="w-full flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
+                    <div key={i} className="w-full flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
                         {!ProductImage[0]  ? (
                             <div className="w-full h-30 bg-neutral-100"></div>
                         ) :
@@ -34,7 +33,7 @@ const Products = async  () => {
                                 <p>{Delivery ? <Truck/> : <MapPin/>} </p>
                               <Remove id={$id} />
                             </div>
-                    </Link>
+                    </div>
                 ))
             }
         
