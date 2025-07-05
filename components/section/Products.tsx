@@ -9,7 +9,7 @@ import useSWR from 'swr'
 
 const getProducts = async () => {
   try {
-    const response = await fetch('http://localhost:3000/api/get-products', {
+    const response = await fetch('/api/get-products', {
       next: { tags: ['collection'] } ,
       method: 'POST',
       body: JSON.stringify({ userId:'sd'}),
@@ -27,7 +27,7 @@ const getProducts = async () => {
 
 const Products =  () => {
   
-  const { data, error, isLoading } = useSWR('products', getProducts)
+  const { data, error, isLoading } = useSWR('products', getProducts ,{ refreshInterval: 100 })
   const products : Product[] = data
     console.log(data)
     return (

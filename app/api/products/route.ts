@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     title,
     Delivery,
   } = data
-  const products = await prisma.products.create({
+  await prisma.products.create({
     data: {
       price: parseFloat(price),
       description,
@@ -26,6 +26,6 @@ export async function POST(req: NextRequest) {
       userId,
     }
   })
-revalidateTag('collection')  
+  revalidateTag('collection')  
   return Response.json({ status: 200 })
 }

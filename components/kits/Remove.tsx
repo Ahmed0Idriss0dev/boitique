@@ -2,11 +2,11 @@
 import { Trash } from 'lucide-react'
 import { revalidateTag } from 'next/cache'
 import React from 'react'
+import { mutate } from 'swr'
 
 const Remove =  ({id}:{id:string}) => {
   async function Remove() {
     const res = await fetch('/api/remove', {
-        next: { tags: ['collection'] } ,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
