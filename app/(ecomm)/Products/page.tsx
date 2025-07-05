@@ -10,7 +10,6 @@ import Image from 'next/image'
 import React, { Suspense } from 'react'
 
 const page = async () => {
-  const user = await currentUser()
     return (
     <>
     <div className="flex h-14 justify-between items-center gap-2 ">

@@ -146,7 +146,7 @@ body{
 
   }
   input{
-    @apply w-full h-11 border border-neutral-200 px-2 rounded-md
+    @apply w-full h-11 border outline-0 focus:outline-1 focus:outline-brand-500 border-neutral-200 px-2 rounded-md
   }
 
 }

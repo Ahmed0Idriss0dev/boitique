@@ -1,5 +1,6 @@
 'use client'
 import { Trash } from 'lucide-react'
+import { revalidateTag } from 'next/cache'
 import React from 'react'
 
 const Remove =  ({id}:{id:string}) => {
@@ -11,7 +12,10 @@ const Remove =  ({id}:{id:string}) => {
         },
         body: JSON.stringify({id})
       })
+      const data = await res.json()
+     
   }
+  
   return (
     <button onClick={Remove} className='text-white h-10 w-10 bg-brand-500 rounded-full flex justify-center items-center'>
         <Trash/>

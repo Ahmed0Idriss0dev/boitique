@@ -12,11 +12,9 @@ const Upload = ({onUpload}:OnUpload) => {
     onUpload(res.info.secure_url)
     widget.close();
   }}
- 
-  
->
+   >
   {({ open }) => (
-   <div onClick={() => open?.()} className="w-full flex-col gap-0.5 h-40 border border-neutral-200 flex justify-center items-center">
+   <div onClick={() => open?.()} className="w-full cursor-pointer rounded-2xl flex-col gap-0.5 h-40 border border-neutral-200 flex justify-center items-center">
      <UploadCloud/>
      <p>upload your products</p>
    </div>

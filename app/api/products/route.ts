@@ -9,10 +9,8 @@ export async function POST(req: NextRequest) {
   const { userId } = await auth();
   if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const user = await currentUser()
   const data = await req.json()
-  const users = user?.id
-  const { price,
+   const { price,
     description,
     ProductsImageList,
     title,
@@ -25,10 +23,10 @@ export async function POST(req: NextRequest) {
       ProductsImageList,
       title,
       Delivery,
-      userId:users,
+      userId,
     }
   })
   revalidateTag('data')
   revalidatePath('/Products')
-  return Response.json({ hello: 'world' }, { status: 200 })
+  return Response.json({ status: 200 })
 }

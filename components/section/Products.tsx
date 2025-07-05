@@ -4,19 +4,23 @@ import { MapPin, Truck } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import Remove from '../kits/Remove'
+import prisma from '@/utils/client'
+import { auth } from '@clerk/nextjs/server'
 
 const Products = async () => {
-    const data: Product[] = await getProducts()
-    console.log(data)
+   const {userId} = await auth()
+   const  products:Product[] = await getProducts({userId})
+
+    console.log('data',products)
     
     return (
         <>
         {
-            data && (
+            products && (
 
         <div className='grid grid-cols-4 gap-2 '>
             {
-                data.map(({ price, description, title, Delivery, ProductsImageList , id  }, i) => (
+                products.map(({ price, description, title, Delivery, ProductsImageList , id  }, i) => (
                     <div key={i} className="w-full flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
                         {!ProductsImageList[0] ? (
                             <div className="w-full h-30 bg-neutral-100"></div>
