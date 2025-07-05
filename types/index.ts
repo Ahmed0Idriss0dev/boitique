@@ -10,5 +10,5 @@ export interface Product {
   description: string
   price: number
   Delivery: boolean
-  ProductsImageList: string[]
+  ProductImage: string[]
 }

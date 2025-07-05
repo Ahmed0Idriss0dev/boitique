@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   const { userId } = await auth();
   if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const data:Product = await req.json()
+  const data = await req.json()
    
   WriteProducts(data)
   revalidateTag('collection')  

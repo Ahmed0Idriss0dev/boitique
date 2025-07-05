@@ -6,7 +6,8 @@ const databaseId = '686945dd001dfa010b85'; //database id
 const collectionId = '686945ec003584fe7742'; // 'products'
 //write products
 
-export async function WriteProducts({Product}:{Product:Product}){
+export async function WriteProducts(Product:{Product:Product}){
+
    try {
     const Response = await db.createDocument(
         databaseId ,
@@ -26,9 +27,9 @@ export async function GetProducts() {
         const Response = await db.listDocuments(
             databaseId ,
             collectionId ,
-          
+
         )
-        return Response
+        return Response.documents
     } catch (error) {
         
     }

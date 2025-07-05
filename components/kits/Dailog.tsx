@@ -6,8 +6,10 @@ import Upload from './Upload'
 import Image from 'next/image'
 import Close from './close'
 import { ContextProvider } from '@/store'
+import { useUser } from '@clerk/nextjs'
 
 const Dailog = () => {
+  const user = useUser()
   const {openClose} =ContextProvider()
   
   const [imageData, setImageData] = useState<string[]>([])
@@ -23,23 +25,26 @@ const Dailog = () => {
     setLoading(true)
 
     const payload = {
-       price , 
+        id:2131313,
+        price:parseFloat(price) , 
         description ,
-        ProductsImageList :imageData,
+        userId:user.user?.id ,
+        ProductImage :imageData,
         title ,
         Delivery ,
     }
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
+      const res = await fetch(`/api/products`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
       })
-
+      
       if (res.ok) {
+        console.log(res.json)
         setTitle('')
         setPrice('')
         setDescription('')

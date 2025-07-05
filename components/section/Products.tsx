@@ -4,26 +4,25 @@ import Image from 'next/image'
 import React from 'react'
 import Remove from '../kits/Remove'
 
-import useSWR from 'swr'
-import { useUser } from '@clerk/nextjs'
-import { auth } from '@clerk/nextjs/server'
+import { GetProducts } from '@/client/db/curd'
 
 
 const Products = async  () => {
-     
+      const data:Product[] = await  GetProducts()
+    
     return (
         <>
-        {/* {
-            products && (
+        {
+            data && (
 
         <div className='grid grid-cols-4 gap-2 '>
             {
-                products.map(({ price, description, title, Delivery, ProductsImageList , id  }, i) => (
+                data.map(({ price, description, title, Delivery , id  ,ProductImage }, i) => (
                     <div key={i} className="w-full flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
-                        {!ProductsImageList[0] ? (
+                        {!ProductImage[0]  ? (
                             <div className="w-full h-30 bg-neutral-100"></div>
                         ) :
-                            <Image key={i} width={400} height={400} src={ProductsImageList[0] as string} alt="Uploaded" className="w-full object-cover h-70 rounded shadow" />
+                            <Image key={i} width={400} height={400} src={ProductImage[0] as string} alt="Uploaded" className="w-full object-cover h-70 rounded shadow" />
                         }
                         <div className="p-2.5">
                             <h3 className='t '>{title}</h3>
@@ -41,7 +40,7 @@ const Products = async  () => {
         </div>
             )
         }
-         */}
+        
         </>
         )
 }
