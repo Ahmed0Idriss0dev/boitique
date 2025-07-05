@@ -1,5 +1,5 @@
 'use client'
-
+import { v4 as uuidv4 } from 'uuid';
 import React, { useState } from 'react'
 import { Switch } from '../ui/switch'
 import Upload from './Upload'
@@ -25,7 +25,7 @@ const Dailog = () => {
     setLoading(true)
 
     const payload = {
-        id:2131313,
+        id:uuidv4(),
         price:parseFloat(price) , 
         description ,
         userId:user.user?.id ,
