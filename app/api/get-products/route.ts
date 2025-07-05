@@ -6,11 +6,7 @@ import prisma from '@/utils/client'
 export async function POST(req: Request) {
   const { userId } :{userId:string} = await req.json()
 
-  const products = await prisma.products.findMany({
-    where:{
-      userId
-    }
-  })
+  const products = await prisma.products.findMany({})
 
   return NextResponse.json({products})
 }
