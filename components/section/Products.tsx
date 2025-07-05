@@ -5,11 +5,12 @@ import React from 'react'
 import Remove from '../kits/Remove'
 
 import { GetProducts } from '@/client/db/curd'
+import Link from 'next/link'
 
 
 const Products = async  () => {
       const data:Product[] = await  GetProducts()
-    
+      console.log(data)
     return (
         <>
         {
@@ -17,8 +18,8 @@ const Products = async  () => {
 
         <div className='grid grid-cols-4 gap-2 '>
             {
-                data.map(({ price, description, title, Delivery , id  ,ProductImage }, i) => (
-                    <div key={i} className="w-full flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
+                data.map(({ price, description, title, Delivery   ,ProductImage , $id }, i) => (
+                    <Link  href={`/${$id}`} key={i} className="w-full flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
                         {!ProductImage[0]  ? (
                             <div className="w-full h-30 bg-neutral-100"></div>
                         ) :
@@ -28,11 +29,12 @@ const Products = async  () => {
                             <h3 className='t '>{title}</h3>
                             <p className='text-sm opacity-90'>{price}DH </p>
                         </div>
+                    
                             <div className="flex p-2.5 justify-between items-center gap-1.5">
                                 <p>{Delivery ? <Truck/> : <MapPin/>} </p>
-                              <Remove id={id} />
+                              <Remove id={$id} />
                             </div>
-                    </div>
+                    </Link>
                 ))
             }
         
