@@ -23,9 +23,9 @@ const Dailog = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-
+    const id = uuidv4()
     const payload = {
-        id:uuidv4(),
+        id,
         price:parseFloat(price) , 
         description ,
         userId:user.user?.id ,
