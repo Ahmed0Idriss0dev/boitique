@@ -40,8 +40,6 @@ const Dailog = () => {
       })
 
       if (res.ok) {
-        alert('Product added successfully!')
-        // reset form
         setTitle('')
         setPrice('')
         setDescription('')
@@ -49,12 +47,10 @@ const Dailog = () => {
         setImageData([])
         openClose()
       } else {
-        console.error(await res.text())
-        alert('Something went wrong.')
+        console.log(await res.text())
       }
     } catch (err) {
-      console.error(err)
-      alert('Error submitting product.')
+      console.log(err)
     } finally {
       setLoading(false)
     }

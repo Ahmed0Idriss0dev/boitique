@@ -15,6 +15,6 @@ export async function POST(req: NextRequest) {
   const products = await prisma.products.delete({
     where:{id}
   })
-revalidateTag('collection')  
+  revalidateTag('collection')  
   return Response.json( { status: 200 })
 }

@@ -6,6 +6,7 @@ import React from 'react'
 const Remove =  ({id}:{id:string}) => {
   async function Remove() {
     const res = await fetch('/api/remove', {
+        next: { tags: ['collection'] } ,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
