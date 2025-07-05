@@ -1,26 +1,26 @@
-'use client'
+import prisma from '@/utils/client'
 import { Trash } from 'lucide-react'
-import { revalidateTag } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import React from 'react'
 import { mutate } from 'swr'
 
 const Remove =  ({id}:{id:string}) => {
-  async function Remove() {
-    const res = await fetch('/api/remove', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({id})
-      })
-      const data = await res.json()
-     
+  async function Action() {
+    "use server"
+    await prisma.products.delete({
+      where:{
+        id
+      }
+    })
+    revalidatePath('/Products')
   }
-  
   return (
-    <button onClick={Remove} className='text-white h-10 w-10 bg-brand-500 rounded-full flex justify-center items-center'>
+    <form action={Action}>
+
+    <button  className='text-white h-10 w-10 bg-brand-500 rounded-full flex justify-center items-center'>
         <Trash/>
     </button>
+    </form>
   )
 }
 

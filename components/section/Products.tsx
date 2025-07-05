@@ -1,4 +1,3 @@
-'use client'
 import { Product } from '@/types'
 import { MapPin, Truck } from 'lucide-react'
 import Image from 'next/image'
@@ -7,6 +6,8 @@ import Remove from '../kits/Remove'
 
 import useSWR from 'swr'
 import { useUser } from '@clerk/nextjs'
+import prisma from '@/utils/client'
+import { auth } from '@clerk/nextjs/server'
 const getProducts = async () => {
     const {user} = useUser()
   try {
@@ -26,11 +27,14 @@ const getProducts = async () => {
   }
 };
 
-const Products =  () => {
-  
-  const { data, error, isLoading } = useSWR('products', getProducts ,{ refreshInterval: 100 })
-  const products : Product[] = data
-    console.log(data)
+const Products = async  () => {
+    const {userId} = await auth()
+  const products = await prisma.products.findMany({
+    where:{
+        userId
+    }
+  })
+ 
     return (
         <>
         {
