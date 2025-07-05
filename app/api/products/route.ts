@@ -26,7 +26,6 @@ export async function POST(req: NextRequest) {
       userId,
     }
   })
-  revalidateTag('data')
-  revalidatePath('/Products')
+revalidateTag('collection')  
   return Response.json({ status: 200 })
 }

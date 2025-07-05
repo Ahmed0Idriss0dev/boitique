@@ -1,18 +1,35 @@
+'use client'
 import { Product } from '@/types'
-import getProducts from '@/utils/getProducts'
 import { MapPin, Truck } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import Remove from '../kits/Remove'
-import prisma from '@/utils/client'
-import { auth } from '@clerk/nextjs/server'
 
-const Products = async () => {
-   const {userId} = await auth()
-   const  products:Product[] = await getProducts({userId})
+import useSWR from 'swr'
 
-    console.log('data',products)
-    
+const getProducts = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/api/get-products', {
+      next: { tags: ['collection'] } ,
+      method: 'POST',
+      body: JSON.stringify({ userId:'sd'}),
+      headers: {
+        'Content-Type': 'application/json' ,
+      }
+    });
+    const data = await response.json();
+    return data.products;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return [];
+  }
+};
+
+const Products =  () => {
+  
+  const { data, error, isLoading } = useSWR('products', getProducts)
+  const products : Product[] = data
+    console.log(data)
     return (
         <>
         {
