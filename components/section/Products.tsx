@@ -6,33 +6,14 @@ import Remove from '../kits/Remove'
 
 import useSWR from 'swr'
 import { useUser } from '@clerk/nextjs'
-import prisma from '@/utils/client'
 import { auth } from '@clerk/nextjs/server'
-const getProducts = async () => {
-    const {userId} = await auth()
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/get-products`, {
-      next: { tags: ['collection'] } ,
-      method: 'POST',
-      body: JSON.stringify({ userId}),
-      headers: {
-        'Content-Type': 'application/json' ,
-      }
-    });
-    const data = await response.json();
-    return data.products;
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    return [];
-  }
-};
+
 
 const Products = async  () => {
-     const products : Product[] = await getProducts()
- 
+     
     return (
         <>
-        {
+        {/* {
             products && (
 
         <div className='grid grid-cols-4 gap-2 '>
@@ -60,7 +41,7 @@ const Products = async  () => {
         </div>
             )
         }
-        
+         */}
         </>
         )
 }

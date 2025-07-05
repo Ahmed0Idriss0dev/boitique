@@ -7,14 +7,14 @@
     "build": "prisma migrate deploy --schema=prisma/schema.prisma && next build",
     "start": "next start",
     "lint": "next lint",
-     "postinstall": "prisma generate" 
-    
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.23.3",
     "@prisma/client": "^6.11.1",
     "@prisma/extension-accelerate": "^2.0.1",
     "@radix-ui/react-switch": "^1.2.5",
+    "appwrite": "^18.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.0.1",
