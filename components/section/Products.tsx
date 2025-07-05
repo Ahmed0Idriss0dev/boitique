@@ -9,12 +9,12 @@ import { useUser } from '@clerk/nextjs'
 import prisma from '@/utils/client'
 import { auth } from '@clerk/nextjs/server'
 const getProducts = async () => {
-    const {user} = useUser()
+    const {userId} = await auth()
   try {
-    const response = await fetch('/api/get-products', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/get-products`, {
       next: { tags: ['collection'] } ,
       method: 'POST',
-      body: JSON.stringify({ userId:user?.id}),
+      body: JSON.stringify({ userId}),
       headers: {
         'Content-Type': 'application/json' ,
       }
@@ -28,12 +28,7 @@ const getProducts = async () => {
 };
 
 const Products = async  () => {
-    const {userId} = await auth()
-  const products = await prisma.products.findMany({
-    where:{
-        userId
-    }
-  })
+     const products : Product[] = await getProducts()
  
     return (
         <>

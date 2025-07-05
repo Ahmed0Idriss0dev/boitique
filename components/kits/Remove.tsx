@@ -16,7 +16,6 @@ const Remove =  ({id}:{id:string}) => {
   }
   return (
     <form action={Action}>
-
     <button  className='text-white h-10 w-10 bg-brand-500 rounded-full flex justify-center items-center'>
         <Trash/>
     </button>
