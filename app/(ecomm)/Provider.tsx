@@ -12,10 +12,8 @@ const Provider = ({
     const {isOpen} = ContextProvider()
   return (
   <>
-  <AnimatePresence>
-
   {isOpen && <Dailog/>}
-  </AnimatePresence>
+ 
   {children}
   </>
   )

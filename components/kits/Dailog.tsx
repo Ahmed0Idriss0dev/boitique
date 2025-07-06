@@ -123,7 +123,7 @@ const Dailog = () => {
             <span>Delivery</span>
           </div>
 
-          <div className="grid gap-2 grid-cols-[100px_1fr]">
+          <div className="grid gap-2 grid-cols-[200px_1fr]">
            <Close/>
             <button
               type="submit"

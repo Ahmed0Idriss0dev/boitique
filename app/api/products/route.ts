@@ -12,9 +12,15 @@ export async function POST(req: NextRequest) {
   const { userId } = await auth();
   if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const data = await req.json()
-  if(!data) return NextResponse.json({error:'error'} , {status:401})
-   WriteProducts(data)
-  revalidatePath('/Products')  
-  return Response.json({ status: 200 })
+  const data:Product = await req.json()
+  if(!data.title.trim() && !data.ProductImage[0] && !data.price){
+    return NextResponse.json({error:'error'} , {status:401})
+
+  } else{
+    WriteProducts(data)
+   revalidatePath('/Products')  
+   return Response.json({ status: 200 })
+
+  }
+    
 }
