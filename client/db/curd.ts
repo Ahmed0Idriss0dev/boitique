@@ -9,7 +9,7 @@ const collectionId = '686945ec003584fe7742'; // 'products'
 //write products
 
 export async function WriteProducts(Product:{Product:Product}){
-
+   if(!Product) return false
    try {
     const Response = await db.createDocument(
         databaseId ,
