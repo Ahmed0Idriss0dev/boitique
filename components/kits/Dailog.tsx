@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Close from './close'
 import { ContextProvider } from '@/store'
 import { useUser } from '@clerk/nextjs'
-
+import {motion} from 'motion/react'
 const Dailog = () => {
   const user = useUser()
   const {openClose} =ContextProvider()
@@ -62,8 +62,16 @@ const Dailog = () => {
   }
    
   return (
-    <div className='inset-0 z-30 p-7 backdrop-blur-md overflow-auto bg-brand-950/10 fixed flex justify-center items-center'>
-      <form onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-white border border-neutral-200 h-max">
+    <motion.div
+     initial={{opacity:0 , }}
+      animate={{opacity:1} }
+      exit={{opacity:0 , }}
+     className='inset-0 z-30 p-7 backdrop-blur-md overflow-auto bg-brand-950/10 fixed flex justify-center items-center'>
+      <motion.form 
+      initial={{opacity:0 , translateY:33}}
+      animate={{opacity:1 , translateY:0}}
+      exit={{opacity:0 , translateY:33}}
+      onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-white border border-neutral-200 h-max">
         <div>
           <h1>Add new products</h1>
         </div>
@@ -71,9 +79,9 @@ const Dailog = () => {
         <div>
             {imageData.length ==3 ? '': <Upload onUpload={(url) => setImageData((prev) => [...prev, url])}/>
           }
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid w-full py-1.5 grid-cols-3 gap-2">
           {imageData.map((image, i) => (
-            <Image key={i} width={400} height={400} src={image} alt="Uploaded" className="w-30 object-cover h-30 rounded shadow" />
+            <img key={i} width={400} height={400} src={image} alt="Uploaded" className="w-30 object-cover h-30 rounded shadow" />
           ))}
 
           </div>
@@ -126,8 +134,8 @@ const Dailog = () => {
             </button>
           </div>
         </div>
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   )
 }
 

@@ -9,7 +9,7 @@ const Sidebar = () => {
         <div className="w-full h-10 flex justify-start items-center">
         <Logo/>
         </div>
-        <div className=" h-full flex flex-col gap-2 w-full rounded-md">
+        <div className=" h-full py-3 flex flex-col gap-2 w-full rounded-md">
           
           {
               ButtonLinks.map(({icon ,label ,path}, i)=>(

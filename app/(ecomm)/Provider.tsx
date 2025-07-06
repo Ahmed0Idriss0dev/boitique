@@ -1,6 +1,7 @@
 'use client'
 import Dailog from '@/components/kits/Dailog';
 import { ContextProvider } from '@/store';
+import { AnimatePresence } from 'motion/react';
 import React from 'react'
 
 const Provider = ({
@@ -11,7 +12,10 @@ const Provider = ({
     const {isOpen} = ContextProvider()
   return (
   <>
+  <AnimatePresence>
+
   {isOpen && <Dailog/>}
+  </AnimatePresence>
   {children}
   </>
   )
