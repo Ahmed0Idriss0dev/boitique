@@ -33,7 +33,7 @@ const Dailog = () => {
         title ,
         Delivery ,
     }
-
+    if(!payload.title && !payload.ProductImage && !payload.price) return
     try {
       const res = await fetch(`/api/products`, {
         method: 'POST',
