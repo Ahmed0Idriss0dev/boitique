@@ -1,8 +1,13 @@
+'use client'
 import { motion} from 'motion/react'
 import React from 'react'
 import Close from '../../close'
+import { ContextProvider } from '@/store'
 
 function ShopingCard() {
+  const {producds} = ContextProvider()
+  
+  console.log(producds)
   return (
 <motion.div
      initial={{opacity:0 , }}
@@ -17,17 +22,23 @@ function ShopingCard() {
         <div>
           <h1>Shoping card</h1>
         </div>
-        <div className="w-full h-full bg-amber-100"></div>
+        <div className="w-full h-full bg-amber-100">
+            {producds.map(({price ,title ,ProductImage} , i)=>(
+                <div key={i} className="">
+                     <h1>{title} </h1>
+                </div>
+            ))}
+        </div>
         
-          <div className="grid gap-2 grid-cols-[44px_1fr]">
-           <Close/>
+          <div className="grid gap-2 grid-cols-[1fr_44px]">
             <button
               type="submit"
               className="button bg-brand-500 justify-center text-white"
               
-            >
+              >
               Pass la commond sure whatsapp
             </button>
+                <Close/>
           </div>
       </motion.div>
     </motion.div>  )

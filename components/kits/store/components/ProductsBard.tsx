@@ -4,9 +4,11 @@ import Image from 'next/image'
 import React from 'react'
 
 import { GetProducts } from '@/client/db/curd'
+import AddTocard from '../../addTocard'
 
 
 const ProductsBard = async  () => {
+     
       const data:Product[] = await  GetProducts()
     return (
         <>
@@ -29,7 +31,7 @@ const ProductsBard = async  () => {
                     
                             <div className="flex p-2.5 justify-between items-center gap-1.5">
                                 <p>{Delivery ? <span className='bg-brand-500 text-white rounded-full p-3'>shiping</span> : <MapPin/>} </p>
-                                <button className='button flex justify-center rounded-full items-center cursor-pointer w-11 bg-brand-500 text-white'><Plus/></button>
+                                <AddTocard Product={{price ,ProductImage ,title}} />
                             </div>
                     </div>
                 ))

@@ -12,3 +12,8 @@ export interface Product {
   Delivery: boolean
   ProductImage: string[]
 }
+export interface producttype{
+    price:number ,
+    title:string , 
+    ProductImage:string[]
+}
