@@ -13,7 +13,7 @@ const ProductsBard = async  () => {
         {
             data[0] ? (
 
-        <div className='grid grid-cols-1 gap-2 '>
+        <div className='grid pb-20 grid-cols-1 gap-2 '>
             {
                 data.map(({ price, description, title, Delivery   ,ProductImage , $id }, i) => (
                     <div key={i} className="w-full  flex flex-col justify-between  border border-neutral-200 h-full bg-white rounded-md">
