@@ -5,7 +5,7 @@ import React from 'react'
 const Close = () => {
     const {openClose} =ContextProvider()
   return (
-    <button onClick={openClose} className='button'> close</button>
+    <button onClick={openClose} className='button cursor-pointer'> close</button>
   )
 }
 

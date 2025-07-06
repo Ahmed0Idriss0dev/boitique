@@ -71,7 +71,7 @@ const Dailog = () => {
       initial={{opacity:0 , translateY:33}}
       animate={{opacity:1 , translateY:0}}
       exit={{opacity:0 , translateY:33}}
-      onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-white border border-neutral-200 h-max">
+      onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-linear-90 from-brand-100 to-white border border-neutral-200 h-max">
         <div>
           <h1>Add new products</h1>
         </div>
