@@ -5,7 +5,7 @@ import { ButtonLinks } from '../helper'
 
 const Sidebar = () => {
   return (
-    <aside className='w-full gap-2 flex-col border-r border-neutral-200 h-full flex justify-between p-2'>
+    <aside className='w-full gap-2 flex-col border-r bg-neutral-50 border-neutral-200 h-full flex justify-between p-2'>
         <div className="w-full h-10 flex justify-start items-center">
         <Logo/>
         </div>

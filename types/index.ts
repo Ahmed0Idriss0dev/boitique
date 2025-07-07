@@ -10,7 +10,8 @@ export interface Product {
   description: string
   price: number
   Delivery: boolean
-  ProductImage: string[]
+  ProductImage: string[] ,
+  currency?:string ,
 }
 export interface producttype{
     price:number ,

@@ -8,6 +8,7 @@ import Close from './close'
 import { ContextProvider } from '@/store'
 import { useUser } from '@clerk/nextjs'
 import {motion} from 'motion/react'
+import Selects from './Select';
 const Dailog = () => {
   const user = useUser()
   const {openClose} =ContextProvider()
@@ -16,7 +17,9 @@ const Dailog = () => {
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
-  const [        Delivery , setDelivery] = useState(false)
+  const [currency, setCurrency] = useState('')
+
+  const [Delivery , setDelivery] = useState(false)
   const [loading, setLoading] = useState(false)
 
   
@@ -32,6 +35,7 @@ const Dailog = () => {
         ProductImage :imageData,
         title ,
         Delivery ,
+        currency
     }
     if(!payload.title && !payload.ProductImage && !payload.price) return
     try {
@@ -60,7 +64,6 @@ const Dailog = () => {
       setLoading(false)
     }
   }
-   
   return (
     <motion.div
      initial={{opacity:0 , }}
@@ -71,7 +74,7 @@ const Dailog = () => {
       initial={{opacity:0 , translateY:33}}
       animate={{opacity:1 , translateY:0}}
       exit={{opacity:0 , translateY:33}}
-      onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-linear-90 from-brand-100 to-white border border-neutral-200 h-max">
+      onSubmit={handleSubmit} className="w-[490px] rounded-md space-y-2 p-4 z-10 bg-linear-90 from-white to-white border border-neutral-200 h-max">
         <div>
           <h1>Add new products</h1>
         </div>
@@ -105,7 +108,8 @@ const Dailog = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-
+          <label htmlFor="">Currency</label>
+           <Selects HendleChange={(e)=> setCurrency(e)}/>
           <label htmlFor="description">Description</label>
           <textarea
             name="description"

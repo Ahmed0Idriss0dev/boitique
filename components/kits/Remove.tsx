@@ -1,22 +1,28 @@
 import { Delete } from '@/client/db/curd'
 import { Trash } from 'lucide-react'
-import { revalidatePath, revalidateTag } from 'next/cache'
 import React from 'react'
-import { mutate } from 'swr'
 
 const Remove =  ({id}:{id:string}) => {
-  async function Action() {
-    "use server"
-   const data=  await Delete(id)
-   console.log(data)
-    revalidatePath('/Products')
+  const Delete= async ()=>{
+    try {
+        const res = await fetch('/api/remove',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ProductId:id})
+        })
+
+    } catch (error) {
+      
+    }
   }
+  
   return (
-    <form action={Action}>
-    <button  className='text-white cursor-pointer h-10 w-10 bg-brand-500 rounded-full flex justify-center items-center'>
-        <Trash/>
+
+    <button onClick={Delete}  className='button text-white cursor-pointer h-10 w-40  bg-red-500  flex justify-center items-center'>
+        Delete
     </button>
-    </form>
   )
 }
 
