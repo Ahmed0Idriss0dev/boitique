@@ -67,3 +67,17 @@ export async function GetProductsStore(userId:string) {
         
     }
 }
+
+export async function getById(id:string) {
+    const {userId} = await auth()
+    try {
+        const Response = await db.getDocument(
+            databaseId ,
+            collectionId ,
+            id
+        )
+        return Response
+    } catch (error) {
+        
+    }
+}
