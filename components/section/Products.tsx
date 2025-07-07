@@ -13,20 +13,16 @@ const Products = async  () => {
     return (
         <>
         {
-            data[0] ? (
-
+        data[0] ? (
         <div className='flex flex-col gap-1 '>
             {
                 data.map(({ price, description, title, Delivery   ,ProductImage , $id ,currency}, i) => (
                   <ProductCard currency={currency} description={description} id={$id} userId={''} key={i} Delivery={Delivery} title={title} ProductImage={ProductImage} price={price}  />
                 ))
             }
-        
-
         </div>
             ) :
             <div className="flex w-full h-full justify-center items-center">
-
                 <Image src='/logo/noProduct.svg' className='w-50'  width={400} height={400} alt='logo'/>
             </div>
         }

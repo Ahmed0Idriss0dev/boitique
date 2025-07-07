@@ -1,5 +1,6 @@
 'use client'
 import { buttonType } from '@/types'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
@@ -13,7 +14,8 @@ const Button = ({icon ,label  , path}:buttonType) => {
   const Gopath = ()=> route.push(path)
   return (
     <button onClick={Gopath} className={twMerge('button h-10 cursor-pointer flex justify-start gap-1 items-center px-3' , isActive ? 'bg-brand-600/15 border-0 text-brand-950':'opacity-70')}>
-        {icon}
+        
+        <Image  src={icon as string} width={20} height={20} alt='icons'/>
         <span>{label} </span>
     </button>
   )

@@ -6,7 +6,7 @@ import DropDownMenu from './DropDownMenu'
 
 const ProductCard = ({Delivery ,ProductImage ,id ,title ,price ,currency }:Product) => {
   return (
-<div className="w-full flex  justify-between  border border-neutral-200 h-full bg-white rounded-md">
+<div className="w-full p-2 flex  justify-between  border border-neutral-200 h-full bg-white rounded-md">
                         <div className="flex  items-center gap-2">
 
                         {!ProductImage[0]  ? (

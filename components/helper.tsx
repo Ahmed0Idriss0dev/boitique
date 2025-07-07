@@ -2,18 +2,21 @@ import { buttonType } from "@/types";
 import { Box, Settings, ShoppingCart } from "lucide-react";
 
 export const ButtonLinks:buttonType[] =[
+    //==== ===
     {
-        icon:<Box/> ,
+        icon:'/icons/box.svg' ,
         label:'Products',
         path:'/Products'
     } ,
+     //==== === = === === === === === 
     {
-        icon:<ShoppingCart/> ,
+        icon:'/icons/Order.svg' ,
         label:'Orders',
         path:'/Orders'
     } ,
+    /// ===------- ===== /// ====>
     {
-        icon:<Settings/> ,
+        icon:'/icons/Settings.svg' ,
         label:'Settings',
         path:'/Settings'
     }

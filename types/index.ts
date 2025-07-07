@@ -1,5 +1,5 @@
 export interface buttonType{
-    icon:React.ReactNode ,
+    icon:string ,
     label:string , 
     path:string 
 }
