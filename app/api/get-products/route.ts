@@ -6,6 +6,6 @@ import { GetProducts } from '@/client/db/curd';
 export async function POST(req: Request) {
       const { userId } = await auth();
       if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-       const data = GetProducts()
+       const data = await GetProducts()
       return NextResponse.json({data})
   }

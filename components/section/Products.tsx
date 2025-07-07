@@ -3,38 +3,41 @@ import { Product } from '@/types'
 import { MapPin, MoreVertical, Truck } from 'lucide-react'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-
-import { GetProducts } from '@/client/db/curd'
 import ProductCard from '../kits/ProductCard'
+import { ContextProvider } from '@/store'
 
 
 const Products = () => {
-    const [data , setdata] = useState([])
+    const {producds} = ContextProvider()
+    const [data , setdata] = useState<Product[]>([])
     useEffect(() => {
-        async function get() {
-            try {
-                const response = await fetch(`/api/get-products`, {
+        const res = async()=> {
+          const response = await fetch(`/api/get-products`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                 })
-                const data = await response.json()
-                console.log(data)
-            } catch (error) {
-
-            }
+         const json = await response.json()
+         console.log(json.data)
+         setdata(json.data)
         }
-        get()
+        res()
+        console.log(data)
     }, [])
-    const results = data.filter((item) => item.currency.startsWith("E"));
+    const Produts = data.filter((item)=>{
+        const tolower = item.title.toLowerCase()
+        const key = producds.toLowerCase()
+        const data = tolower.startsWith(key)
+        return data
+    })
     return (
         <>
             {
                 data[0] ? (
                     <div className='flex flex-col gap-1 '>
                         {
-                            results.map(({ price, description, title, Delivery, ProductImage, $id, currency }, i) => (
+                            Produts.map(({ price, description, title, Delivery, ProductImage, $id, currency }, i) => (
                                 <ProductCard currency={currency} description={description} id={$id} userId={''} key={i} Delivery={Delivery} title={title} ProductImage={ProductImage} price={price} />
                             ))
                         }

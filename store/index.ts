@@ -4,17 +4,15 @@ import {create} from 'zustand'
 interface ContextType{
     isOpen:boolean ,
     openClose:()=> void ,
-    producds:producttype[] ,
-    addProducds:(Product:producttype)=> void
+    producds:string ,
+    addKeywords:(key:string)=> void ,
 }
 export const ContextProvider=create<ContextType>((set)=>({
 isOpen:false ,
-addProducds(Product) {
-    set((state)=>({
-        producds:[...state.producds ,Product]
-    }))
+addKeywords(key) {
+    set({producds:key})
 },
-producds:[] ,
+producds:'' ,
 openClose() {
 set((state)=>({
     isOpen:state.isOpen ? false : true
