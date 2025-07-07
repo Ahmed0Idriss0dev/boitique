@@ -26,8 +26,8 @@ const Products = () => {
         console.log(data)
     }, [])
     const Produts = data.filter((item)=>{
-        const tolower = item.title.toLowerCase()
-        const key = producds.toLowerCase()
+        const tolower = item.title.toLowerCase().trim()
+        const key = producds.toLowerCase().trim()
         const data = tolower.startsWith(key)
         return data
     })
